@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        #app {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            
+            input {
+                height: 2rem;
+                width: 100%;
+                font-size: 1.2rem;
+                text-align: end;
+            }
+        }
+        .button-container {
+            width: fit-content;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: .25rem;
+        }
+        button { 
+            width: 4rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Calculator</h1>
+        <div id="app">
+            <input type="text" name="" id="display" readonly>
+            <div class="button-container" id="buttons">
+                <button>%</button>
+                <button>/</button>
+                <button>C</button>
+                <button><</button>
+    
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>x</button>
+    
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>-</button>
+    
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>+</button>
+    
+                <button> </button>
+                <button>0</button>
+                <button>.</button>
+                <button>=</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const buttons = document.querySelector('#buttons')
+        const display = document.querySelector('#display')
+        buttons.addEventListener('click', (event) => {
+            const $btnSelect = (event.target);
+            if ($btnSelect.textContent === "=") {
+                printResult()
+            }
+            else {
+                display.value += $btnSelect.textContent
+            }
+            
+        })
+    </script>
+</body>
+</html>
